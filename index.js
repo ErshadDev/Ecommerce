@@ -152,6 +152,34 @@ app.get("/admin/content", (req, res) => {
 app.get("/admin/satisfiction", (req, res) => {
     res.render('admin/pages/satisfiction');
 });
+const Satisfictions = mongoose.model("Satisfictions", {
+    id: {
+        type: String,
+        required: true,
+    },
+    text: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now(),
+    },
+});
+app.post("/admin/satisfiction",upload.single('image'), async(req, res) => {
+    const satisfiction = new Satisfictions({
+        id : mongoose.Schema.Types.ObjectId,
+        text: req.body.text,
+        image: req.file.filename, // Store the file path or URL
+    });
+    await satisfiction.save();
+    console.log("satistication saved");
+    res.redirect('/admin/satisfiction');
+});
 
 app.post('/admin/addProduct', upload.single('image'), async (req, res) => {
 
