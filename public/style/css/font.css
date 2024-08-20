@@ -1,0 +1,15 @@
+
+@font-face {  
+    font-family: 'b-yekan';  
+    src: url('/style/fonts/B_Yekan/Yekan.TTF'); /* Adjust the path as necessary */  
+  } 
+  @font-face {  
+    font-family: 'b-nazanin';  
+    src: url('/style/fonts/B_NAZANIN/B-NAZANIN.TTF'); /* Adjust the path as necessary */  
+  }
+  h1 , h2 , h3 , h4 , h5, h6{
+    font-family: "b-nazanin" !important;
+  }
+  p{
+    font-family: "b-yekan" !important;
+  }

@@ -36,6 +36,7 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="/admin/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/style/css/font.css">
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-200">
@@ -168,39 +169,31 @@
           <!-- add product to page -->
           <form action="/admin/addProduct" method="POST" enctype="multipart/form-data">
             <div class="nice-form-group">
+              <div class="nice-form-group">
+                <label>اسم محتوا</label>
+                <select name="nameContent" id="">
+                  <option value="first">عکس اول</option>
+                  <option value="second">عکس دوم</option>
+                  <option value="third">عکس سوم</option>
+                  <option value="fourth">عکس چهارم</option>
+                  <option value="fifth">عکس پنجم</option>
+                  <option value="video">ویدیو</option>
+                </select>
+              </div>
+              <div class="nice-form-group">
+                <label>فایل</label>
+                <input type="file" name="image" />
+              </div>
+            <hr>
+            <p>در صورتی که از فیلد بالا ویدیو را انتخاب کرده اید این گذینه ها را پر نمایید.</p>
               <label>عنوان ویدیو</label>
               <input type="text" placeholder="اسم" name="name" />
             </div>
             <div class="nice-form-group">
               <label>متن ویدیو</label>
-              <input type="text" placeholder="اسم" name="name" />
+              <textarea name="text" id=""></textarea>
             </div>
-            <div class="nice-form-group">
-              <label>عکس اول</label>
-              <input type="file" name="image" />
-            </div>
-            <div class="nice-form-group">
-              <label>عکس دوم</label>
-              <input type="file" name="image" />
-            </div>
-            <div class="nice-form-group">
-              <label>عکس سوم</label>
-              <input type="file" name="image" />
-            </div>
-            <div class="nice-form-group">
-              <label>عکس چهارم</label>
-              <input type="file" name="image" />
-            </div>
-            <div class="nice-form-group">
-              <label>عکس پنجم</label>
-              <input type="file" name="image" />
-            </div>
-            <div class="nice-form-group">
-              <label>ویدیو</label>
-              <input type="file" name="image" />
-            </div>
-
-
+            <hr>
             <input type="submit" name="submit" id="submit">
           </form>
         </section>
