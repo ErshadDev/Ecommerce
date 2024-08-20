@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tag
+  -->
+  <title>آنلاین شاپ هلال</title>
+  <meta name="title" content="Woodex - Get Quality Furniture">
+  <meta name="description" content="This is an eCommerce html template made by codewithsadee">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/style/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="/style/images/hero-product-1.jpg">
+  <link rel="preload" as="image" href="/style/images/hero-product-2.jpg">
+  <link rel="preload" as="image" href="/style/images/hero-product-3.jpg">
+  <link rel="preload" as="image" href="/style/images/hero-product-4.jpg">
+  <link rel="preload" as="image" href="/style/images/hero-product-5.jpg">
+
+<style>
+
+</style>
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      
+      <div class="header-action">
+
+        <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+        
+        <button class="header-action-btn" aria-label="user">
+          <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <button class="header-action-btn" aria-label="favorite list">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+        </button>
+
+        <button class="header-action-btn" aria-label="cart">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+        </button>
+
+
+      </div>
+
+      <a href="#" class="logo">هلال</a>
+
+      <div class="input-wrapper">
+        <input type="search" name="search" placeholder="چیزی را جستجو کنید..." class="input-field">
+
+        <ion-icon id="search" name="search-outline"  aria-hidden="true"></ion-icon>
+      </div>
+
+    </div>
+  </header>
+  <!-- 
+    - #SIDEBAR
+  -->
+  <div class="sidebar" data-navbar>
+
+    <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+      <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+    </button>
+
+    <nav class="navbar">
+      <ul class="navbar-list">
+
+        <li class="navbar-item">
+          <a href="#home" class="navbar-link" data-nav-link>خانه</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#about" class="navbar-link" data-nav-link>اجناس عمده</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#product" class="navbar-link" data-nav-link>اجناس پرچون</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#blog" class="navbar-link" data-nav-link>چت با ما</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <ul class="contact-list">
+
+      <li>
+        <p class="contact-list-title">تماس با ما</p>
+      </li>
+
+      <li class="contact-item">
+        <address class="address">
+          افغانستان، هرات، سه راهی بادمرغان، کافه آرتاکانا
+        </address>
+      </li>
+
+      <li class="contact-item">
+        <a href="mailto:support.center@woodex.co" class="contact-link">ershadeiman@gmail.com</a>
+      </li>
+
+      <li class="contact-item">
+        <a href="tel:00001235567890" class="contact-link">(0093) 793835273</a>
+      </li>
+
+    </ul>
+
+    <div class="social-wrapper">
+
+      <p class="social-list-title">ما را در رسانه های اجمتاعی دنبال کنید.</p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-tumblr"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+  <div class="overlay" data-overlay data-nav-toggler></div>
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="home">
+        <div class="container">
+
+          <ul class="hero-list">
+
+            <li>
+              <div class="hero-card">
+
+                <figure class="card-banner img-holder" style="--width: 285; --height: 396;">
+                  <img src="/style/images/hero-product-1.jpg" width="285" height="396" alt="Art Deco Home"
+                    class="img-cover">
+                </figure>
+              </div>
+            </li>
+
+            <li class="colspan-2">
+              <div class="hero-card">
+
+                <figure class="card-banner img-holder" style="--width: 568; --height: 389;">
+                  <img src="/style/images/hero-product-2.jpg" width="568" height="389" alt="Helen Chair"
+                    class="img-cover">
+                </figure>
+              </div>
+            </li>
+
+            <li>
+              <div class="hero-card">
+
+                <figure class="card-banner img-holder" style="--width: 285; --height: 396;">
+                  <img src="/style/images/hero-product-3.jpg" width="285" height="396" alt="Vase Of Flowers"
+                    class="img-cover">
+                </figure>
+              </div>
+            </li>
+
+            <li class="colspan-2">
+              <div class="hero-card">
+
+                <figure class="card-banner img-holder" style="--width: 580; --height: 213;">
+                  <img src="/style/images/hero-product-4.jpg" width="580" height="213" alt="Wood Eggs"
+                    class="img-cover">
+                </figure>
+              </div>
+            </li>
+
+            <li class="colspan-2">
+              <div class="hero-card">
+
+                <figure class="card-banner img-holder" style="--width: 580; --height: 213;">
+                  <img src="/style/images/hero-product-5.jpg" width="580" height="213" alt="Table Wood Pine"
+                    class="img-cover">
+                </figure>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <h2 class="section-title">فروشگاه آنلاین هلال</h2>
+
+          <p class="section-text">
+            فروشگاه آنلاین هلال برای راحتی شما اینجاست تمامی اجناس ما زیر قیمت بازار با پیک رایگان برای شما تحویل داده میشود. با ما راحتی را احساس کنید.
+          </p>
+          <div class="about-card">
+            <figure class="card-banner img-holder" style="--width: 1170; --height: 450;">
+              <img src="/style/images/about-banner.jpg" width="1170" height="450" loading="lazy" alt="Woodex promo"
+                class="img-cover">
+            </figure>
+            <button class="play-btn" aria-label="play video">
+              <ion-icon name="play-circle-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- 
+        - #PRODUCTS عمده
+      -->
+      <section class="section product" id="product" aria-label="product">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">اجناس عمده</h2>
+
+            <ul class="filter-btn-list">
+
+              <li class="filter-btn-item">
+                <button class="filter-btn active" data-filter-btn="all">تمام اجناس</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="electric">برقی</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="food">خوراکه</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="furniture">مبلمان</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="desing">تزئینی</button>
+              </li>
+
+            </ul>
+          </div>
+          <ul class="grid-list product-list" data-filter="all">
+           <% if(majors.length != 0){ %>
+            <% majors.forEach(function(major) { %>  
+              <li class="<%= major.catagory %>">
+                <div class="product-card">
+                  <a href="#" class="card-banner img-holder has-before" style="--width: 300; --height: 300;">
+                    <img src='/images/<%= major.image %>' width="300" height="300" loading="lazy"
+                      alt="Animi Dolor Pariatur" class="img-cover">
+                  </a>
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title"><%= major.name %></a>
+                    </h3>
+                    <div class="card-price">
+                      <data class="price" value="10"><%= major.salesPrice %></data>
+                    </div>
+                  </div>
+          
+                </div>
+                </li> 
+            <% }); %>  
+
+           <% }else{ %> 
+              <%= "nothing is there!" %>
+            <% } %>
+            
+            </div>
+            </li>
+
+           
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - # ratil  
+      -->
+      <section class="section product" id="product" aria-label="product">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">اجناس پرچون</h2>
+
+            <ul class="filter-btn-list">
+
+              <li class="filter-btn-item">
+                <button class="filter-btn active" data-filter-btn="all">تمام اجناس</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="electric">برقی</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="food">خوراکه</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="furniture">مبلمان</button>
+              </li>
+
+              <li class="filter-btn-item">
+                <button class="filter-btn" data-filter-btn="desing">تزئینی</button>
+              </li>
+
+            </ul>
+          </div>
+          <ul class="grid-list product-list" data-filter="all">
+           <% if(parchons.length != 0){ %>
+            <% parchons.forEach(function(parchon) { %>  
+              <li class="<%= parchon.catagory %>">
+                <div class="product-card">
+                  <a href="#" class="card-banner img-holder has-before" style="--width: 300; --height: 300;">
+                    <img src='/images/<%= parchon.image %>' width="300" height="300" loading="lazy"
+                      alt="Animi Dolor Pariatur" class="img-cover">
+                  </a>
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title"><%= parchon.name %></a>
+                    </h3>
+                    <div class="card-price">
+                      <data class="price" value="10"><%= parchon.salesPrice %></data>
+                    </div>
+                  </div>
+          
+                </div>
+                </li> 
+            <% }); %>  
+
+           <% }else{ %> 
+              <%= "nothing is there!" %>
+            <% } %>
+            
+            </div>
+            </li>
+
+           
+
+          </ul>
+
+        </div>
+      </section>
+      <!-- 
+        - #BLOG
+      -->
+      <section class="section blog" id="blog" aria-label="blog">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">رضایت 3 مشتری اخیر ما</h2>
+
+            <!-- <a href="#" class="btn-link">
+              <span class="span">دیدن همه</span>
+
+              <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
+            </a> -->
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="blog-card">
+
+                <div class="card-banner img-holder" style="--width: 374; --height: 243;">
+                  <img src="/style/images/blog-1.jpg" width="374" height="243" loading="lazy"
+                    alt="Unique products that will impress your home in 2022." class="img-cover">
+<!-- 
+                  <a href="#" class="card-btn">
+                    <span class="span">بیشتر...</span>
+
+                    <ion-icon name="add-outline" aria-hidden="true"></ion-icon>
+                  </a> -->
+                </div>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">رضایت مشتری ما از خرید ست مبل 8 نفره</a>
+                  </h3>
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <time class="card-meta-text" datetime="2022-09-27">November 27, 2022</time>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+          </ul>
+          <hr style="margin: 40px 0;">
+        </div>
+        
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <!-- <section class="section newsletter" aria-label="newsletter">
+        <div class="container">
+
+          <div class="newsletter-card">
+
+            <div class="card-content">
+              <h2 class="h2 section-title">Our Newsletter</h2>
+
+              <p class="section-text">
+                Subscribe our newsletter and get discount 50% off
+              </p>
+            </div>
+
+            <form action="" class="card-form">
+              <input type="email" name="email_address" placeholder="Your email address" required class="email-field">
+
+              <button type="submit" class="newsletter-btn" aria-label="subscribe">
+                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+      </section> -->
+      
+    </article>
+  </main>
+  <!-- 
+    - #FOOTER
+  -->
+  <footer class="footer" >
+    <div class="container" style="background-color: gainsboro">
+
+      <div class="footer-top section" style="display: flex; flex-direction: row; justify-content: center;">
+
+        <div class="footer-brand" style="text-align: center;">
+          <a href="#" class="logo">هلال</a>
+          <ul style="text-align: center;">
+            <li class="footer-list-item">
+              <ion-icon name="location-sharp" aria-hidden="true"></ion-icon>
+
+              <address class="address">
+                افغانستان،هرات، سه راه آب بخش بادمرغان،کافه آرتاکانا
+              </address>
+            </li>
+
+            <li class="footer-list-item">
+              <ion-icon name="call-sharp" aria-hidden="true"></ion-icon>
+
+              <a href="tel:+1234567890" class="footer-link">0093793835273 - 0093774169912</a>
+            </li>
+
+            <li>
+              <ul class="social-list" style="justify-content: center;">
+
+                <li>
+                  <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>  
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>    
+                  </a>
+                </li>
+
+                
+                <li>
+                  <a href="https://facebook.com/ershadqurbani" class="social-link">
+                    <i class="fab fa-telegram-plane"></i>  
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+<hr>
+      <div class="footer-bottom">
+
+        <p class="copyright">
+          &copy; 2022 All Rights Reserved by <a href="#" class="copyright-link">Ershad Eiman</a>
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="/style/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
