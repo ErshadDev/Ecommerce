@@ -13,7 +13,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const { type } = require('os');
-
+const fs = require("fs");
+const { timeStamp } = require('console');
 // use package for our app
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -34,29 +35,19 @@ app.use((req, res, next) => {
 });
 // API Creation
 app.get('/', async (req, res) => {
-    let products = await Product.find({});
-
-    let majors = [];
-    let parchons = [];
-    let i = 0;
-    products.forEach(function (product) {
-        if (product.type == "major") {
-            majors.push(product);
-        } else if (product.type == "single") {
-            parchons.push(product);
-        } else {
-            majors.push(product);
-            parchons.push(product);
-        }
-        i++;
-    });
-
-    console.log(majors);
-    console.log(parchons);
-    
-    
-
-    res.render('index', { majors: majors, parchons: parchons });
+    let page;
+    if(req.body.page){
+        page = req.body.page;
+    }else{
+        page = 1;
+    }
+    let perPage = 10;
+    let offset = (page - 1) * perPage;
+    let majorProducts = await Product.find({type: "major"}).skip(offset).limit(perPage);
+    let wholesells = await Product.find({type : "single"}).skip(offset).limit(perPage);
+    let contents = await Contents.find({});
+    let satisfictions = await Satisfictions.find({}).sort({ date: -1 }).limit(3);
+    res.render('index', { majorProducts, wholesells, contents , satisfictions});
 })
 
 // Image Storage Engine
@@ -70,6 +61,18 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+const change = multer({
+    dest: 'upload/images', // Upload folder
+    fileFilter: (req, file, cb) => {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+      if (allowedTypes.includes(file.mimetype)) {
+        cb(null, true);
+      } else {
+        cb(new Error('Invalid file type'), false);
+      }
+    }
+  });
 
 // Creating upload endpoint for images
 // use static path
@@ -146,9 +149,59 @@ app.get("/admin/single", async(req, res) => {
 app.get("/admin/sales", (req, res) => {
     res.render('admin/pages/sales');
 });
-app.get("/admin/content", (req, res) => {
+app.get("/admin/content", async(req, res) => {
     res.render('admin/pages/content');
 });
+
+
+app.post('/admin/changeContent', change.single('newImage'), (req, res) => {
+    const selectedImage = req.body.imageSelect;
+    const newImageFile = req.file;
+  
+    if (newImageFile) {
+      const oldImagePath = path.join(__dirname, 'upload/images', selectedImage);
+      const newImagePath = path.join(__dirname, 'upload/images', selectedImage);
+  
+      // Remove old image if it exists
+      if (fs.existsSync(oldImagePath)) {
+        fs.unlinkSync(oldImagePath);
+      }
+  
+      // Rename new image to the old image's name
+      fs.renameSync(newImageFile.path, newImagePath);
+  
+      res.redirect("/admin/content");
+    } else {
+      res.send('No file uploaded.');
+    }
+  });
+
+
+// app.get("/admin/contentShow", async(req, res) => {
+//     let contents = await Contents.find({});
+//     console.log(contents);
+//     res.send({
+//         contents : contents
+//     })
+// });
+// app.delete("/admin/deleteContent/:id" , async(req , res)=>{
+//     try {
+//         const { id } = req.params;
+    
+//         // Find and delete the product
+//         const result = await Contents.findByIdAndDelete(id);
+    
+//         if (!result) {
+//           console.log("failed deleted");
+//           return res.status(404).send('Product not found');
+//         }
+//         res.status(200).send('Content deleted successfully');
+//       } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Server error');
+//       }
+// })
+
 app.get("/admin/satisfiction", (req, res) => {
     res.render('admin/pages/satisfiction');
 });
@@ -157,7 +210,11 @@ const Satisfictions = mongoose.model("Satisfictions", {
         type: String,
         required: true,
     },
-    text: {
+    title: {
+        type: String,
+        required: true,
+    }, 
+    description: {
         type: String,
         required: true,
     },
@@ -173,13 +230,91 @@ const Satisfictions = mongoose.model("Satisfictions", {
 app.post("/admin/satisfiction",upload.single('image'), async(req, res) => {
     const satisfiction = new Satisfictions({
         id : mongoose.Schema.Types.ObjectId,
-        text: req.body.text,
+        title : req.body.title,
+        description: req.body.description,
         image: req.file.filename, // Store the file path or URL
     });
     await satisfiction.save();
     console.log("satistication saved");
     res.redirect('/admin/satisfiction');
 });
+
+// app.post("/admin/addContent" , async(req , res)=>{
+//     const content = new Contents({
+//         image1 : "image1.jpg",
+//         image2 : "image2.jpg",
+//         image3 : "image3.jpg",
+//         image4 : "image4.jpg",
+//         image5 : "image5.jpg",
+//         image6 : "image6.jpg"
+//     })
+//     await content.save();
+//     console.log("contents saved");
+//     res.send("content saved");
+// })
+const Contents = mongoose.model("Contents", {
+    image1: {
+        type: String,
+    },
+    image2: {
+        type: String,
+    },
+    image2: {
+        type: String,
+    },
+    image3: {
+        type: String,
+    },
+    image4: {
+        type: String,
+    },
+    image5: {
+        type: String,
+    },
+    image6: {
+        type: String,
+    },
+});
+
+app.put("/admin/content/66c5c947882307aa0ad50cbb",upload.single('image'), async(req, res) => {
+    var content;
+    var nameContent = req.body.nameContent;
+    if(nameContent == "first"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image1: req.file.filename, // Store the file path or URL
+        });
+    }else if(nameContent == "second"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image2: req.file.filename, // Store the file path or URL
+        });
+    }else if(nameContent == "third"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image3: req.file.filename, // Store the file path or URL
+        });
+    }else if(nameContent == "fourth"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image4: req.file.filename, // Store the file path or URL
+        });
+    }else if(nameContent == "fifth"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image5: req.file.filename, // Store the file path or URL
+        });
+    }else if(nameContent == "sixth"){
+         content = new Contents({
+            id : mongoose.Schema.Types.ObjectId,
+            image6: req.file.filename, // Store the file path or URL
+        });
+    }
+    await content.save();
+    console.log("content saved");
+    res.redirect('/admin/content');
+});
+
 
 app.post('/admin/addProduct', upload.single('image'), async (req, res) => {
 

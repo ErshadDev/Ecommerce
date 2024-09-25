@@ -167,32 +167,23 @@
           </h1>
           <p>محتوای صفحه را عوض کنید</p>
           <!-- add product to page -->
-          <form action="/admin/addProduct" method="POST" enctype="multipart/form-data">
+          <form action="/admin/changeContent" method="POST" enctype="multipart/form-data">
             <div class="nice-form-group">
               <div class="nice-form-group">
                 <label>اسم محتوا</label>
-                <select name="nameContent" id="">
-                  <option value="first">عکس اول</option>
-                  <option value="second">عکس دوم</option>
-                  <option value="third">عکس سوم</option>
-                  <option value="fourth">عکس چهارم</option>
-                  <option value="fifth">عکس پنجم</option>
-                  <option value="video">ویدیو</option>
+                <select name="imageSelect" id="">
+                  <option value="image1.jpg">عکس اول</option>
+                  <option value="image2.jpg">عکس دوم</option>
+                  <option value="image3.jpg">عکس سوم</option>
+                  <option value="image4.jpg">عکس چهارم</option>
+                  <option value="image5.jpg">عکس پنجم</option>
+                  <option value="image6.jpg">عکس شیشم</option>
                 </select>
               </div>
               <div class="nice-form-group">
                 <label>فایل</label>
-                <input type="file" name="image" />
+                <input type="file" name="newImage"/>
               </div>
-            <hr>
-            <p>در صورتی که از فیلد بالا ویدیو را انتخاب کرده اید این گذینه ها را پر نمایید.</p>
-              <label>عنوان ویدیو</label>
-              <input type="text" placeholder="اسم" name="name" />
-            </div>
-            <div class="nice-form-group">
-              <label>متن ویدیو</label>
-              <textarea name="text" id=""></textarea>
-            </div>
             <hr>
             <input type="submit" name="submit" id="submit">
           </form>
@@ -289,6 +280,34 @@
     <script src="/admin/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="/admin/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="/admin/js/plugins/chartjs.min.js"></script>
+    
+    <!-- <script>  
+      document.getElementById('myForm').addEventListener('submit', function(event) {  
+          event.preventDefault(); // Prevent the default form submission  
+  
+          const formData = new FormData(this); // Obtain the form data  
+  
+          // Send the PUT request  
+          fetch('https://localhost:4000/admin/content/66c5c947882307aa0ad50cbb', { // Update URL and resource ID as needed  
+              method: 'PUT',  
+              body: formData  // Keep the FormData object as the body  
+          })  
+          .then(response => {  
+              if (!response.ok) {  
+                  throw new Error('Network response was not ok');  
+              }  
+              return response.json();  
+          })  
+          .then(data => {  
+              console.log('Success:', data);  
+              // You might want to handle the success case here (e.g., display a message)  
+          })  
+          .catch((error) => {  
+              console.error('Error:', error);  
+          });  
+      });  
+  </script>   -->
+    
     <script>
       var ctx = document.getElementById("chart-bars").getContext("2d");
 
